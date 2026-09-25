@@ -1,0 +1,45 @@
+name: Data correction
+description: An item, recipe, quest, vendor, drop or disenchant result is wrong or missing.
+title: "data: "
+labels: ["data"]
+body:
+  - type: input
+    id: item
+    attributes:
+      label: Item or recipe
+      description: Name and, if known, the item or spell id.
+      placeholder: "Arcanite Bar (12360)"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is wrong
+      options:
+        - Missing use or source
+        - Incorrect quantity or skill level
+        - Incorrect New or Changed flag
+        - Incorrect disenchant prediction
+        - Wrong quest, vendor or drop source
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected data
+      description: What should ItemTree show, and how do you know (in game observation, build, source)?
+    validations:
+      required: true
+  - type: input
+    id: build
+    attributes:
+      label: Game build
+      placeholder: "1.60.1.69913"
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy
+      options:
+        - label: This report contains no character names, realm names or account details.
+          required: true
